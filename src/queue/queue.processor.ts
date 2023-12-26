@@ -27,7 +27,6 @@ export class QueueProcessor {
     try {
       await this.litecoinService.processTransaction(job.data);
     } catch (error) {
-      // Логирование ошибок при обработке транзакции
       console.error('Error processing transaction:', error);
     }
   }
