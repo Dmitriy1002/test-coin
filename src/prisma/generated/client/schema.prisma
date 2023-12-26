@@ -1,0 +1,17 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+model Account {
+  id          String    @id @default(dbgenerated()) @db.Uuid
+  username    String
+  balance     Float     @default(0)
+  ltcAddress  String?
+}
