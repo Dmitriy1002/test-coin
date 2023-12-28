@@ -18,7 +18,7 @@ describe('AccountsController (e2e)', () => {
     await app.init();
 
     prismaService = app.get<PrismaService>(PrismaService);
-    await prismaService.cleanDatabase(); // Предполагается, что у вас есть метод для очистки базы данных
+    await prismaService.cleanDatabase();
   });
 
   it('/accounts (POST)', () => {
@@ -47,8 +47,6 @@ describe('AccountsController (e2e)', () => {
         expect(res.body).toHaveProperty('username', 'testuser');
       });
   });
-
-  // Добавьте дополнительные тесты для других эндпоинтов и случаев
 
   afterAll(async () => {
     await app.close();
